@@ -1,0 +1,105 @@
+import java.util.Scanner;
+/* author: Shaif Ehsani
+version 3 mini calculator gets input(integer) as well as the arithmatic operators such as +, -, * ,/ %(mod) from the user and operates on them.
+if the arithmatic operator entered by the user is invalid, the program will produce an error message and ask the user to enter the proper arithmatic operator. The program will keep asking the user for the proper arithmatic operator untill the right operator is entered. The program also asks the user if s/he is done or wants to calculate more. the program will end when the user answers no.
+*/ 
+public class MiniCalculatorV3 {
+    public static void main(String[] args)
+    {
+      int num1, num2 = 0, add;
+      String more = "y", arithmatic_operator;
+      boolean operatorCheck;
+      Scanner userInput = new Scanner(System.in);
+      System.out.println("Welcome to Mini Calculator!");
+      System.out.println("The mini calculator is able to do the following arithmatic operators: '+,-,*,/, %'.");
+      
+      // the while loop runs the program as long as the client needs more calculation
+      while (more.equals("y"))
+      {
+        System.out.println("Please enter an integer:");
+        num1 = userInput.nextInt();
+        System.out.println("Please enter an arithmatic operator:");
+        arithmatic_operator = userInput.next();
+        operatorCheck = operator(arithmatic_operator);
+        // this while loop checks and make sure proper operator is entered
+        while (operatorCheck == false)
+        {
+          System.out.println("Wrong operator entered.");
+          System.out.println("Please enter one of these opeators: (+,-,*,/,%).");
+          arithmatic_operator = userInput.next();
+          operatorCheck = operator(arithmatic_operator);
+        }
+        System.out.println("Please enter a 2nd integer:");
+        num2 = userInput.nextInt();
+       
+        if (arithmatic_operator.equals("+"))
+        {
+          add(num1, num2);
+        }
+        else if (arithmatic_operator.equals("-"))
+        {
+          subtract(num1, num2);
+        }
+        else if (arithmatic_operator.equals("*"))
+        {
+          multiply(num1, num2);
+        }
+        else if (arithmatic_operator.equals("/"))
+        {
+          devide(num1, num2);
+        }
+        else if (arithmatic_operator.equals("%"))
+        {
+          mod(num1, num2);
+        }
+        System.out.println("Do you want to Cantinue? 'y' or 'n'?");
+        more = userInput.next();
+      }
+      System.out.println("Thank you for using the Mini Calculator.");
+    }
+    // Arithmatic operator check method
+    public static boolean operator(String x)
+    {
+      if ((x.equals("+")) || (x.equals("-")) || (x.equals("*")) || (x.equals("/")) || (x.equals("%")))
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+
+    // Addition method
+    public static void add(int a, int b)
+    {
+      int sum = a + b;
+      System.out.println(a + " + " + b + " = " + sum);
+    }
+
+    // subtraction method
+    public static void subtract(int a, int b)
+    {
+      int sum = a - b;
+      System.out.println(a + " - " + b + " = " + sum);
+    }
+    // multiplication method
+    public static void multiply(int a, int b)
+    {
+      int sum = a * b;
+      System.out.println(a + " * " + b + " = " + sum);
+    }
+    // devision method
+    public static void devide(int a, int b)
+    {
+      int sum = a / b;
+      System.out.println(a + " / " + b + " = " + sum);
+    }
+    // modulu method
+    public static void mod(int a, int b)
+    {
+      int sum = a % b;
+      System.out.println(a + " modulu " + b + " = " + sum);
+    }
+
+}
