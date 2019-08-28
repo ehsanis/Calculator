@@ -1,0 +1,29 @@
+import java.util.Scanner;
+// this version of the Mini Calculator gets the input
+// from the user and operates on them.
+class MiniCalculatorV2
+ {
+  public static void main(String[] args)
+  {
+    int num1, num2, sum;
+    System.out.println("... Welcome to Mini Calculator ...");
+    Scanner userInput = new Scanner(System.in);
+    System.out.println("Please enter an integer:");
+    num1 = userInput.nextInt();
+    System.out.println("Please enter another integer:");
+    num2 = userInput.nextInt();
+   
+
+    
+    sum = num1 + num2;
+    System.out.println("num1 = " + num1);
+    System.out.println("num2 = " + num2);
+    System.out.println(num1 + " + " + num2 + " = " + sum);
+    sum = num1 - num2;
+    System.out.println(num1 + " - " + num2 + " = " + sum);
+    sum = num1 / num2;
+    System.out.println(num1 + " / " + num2 + " = " + sum);
+    sum = num1 % num2;
+    System.out.println(num1 + " % " + num2 + " = " + sum);
+  }
+}
